@@ -11,6 +11,10 @@
   h2 {
     margin: 2rem 3rem;
   }
+
+  .selected {
+    background-color: rgb(255, 126, 126);
+  }
 }
 
 .librarySongs {
@@ -37,8 +41,8 @@
     font-size: 16px;
   }
 
-  &:hover {
-    background-color: rgba(226, 164, 164, 0.774);
+  &:hover:not(.selected) {
+    background-color: rgba(255, 126, 126, 0.5);
   }
 }
 

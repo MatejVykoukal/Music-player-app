@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import songModel from "../interfaces/songModel";
