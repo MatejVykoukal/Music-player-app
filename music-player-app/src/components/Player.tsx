@@ -1,7 +1,8 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useContext, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import songModel from "../interfaces/songModel";
+import { AudioContext } from "../AudioContext";
 
 interface Props {
   currentSong: songModel;
@@ -15,7 +16,8 @@ interface SongInfo {
 }
 
 const Player: FC<Props> = ({ currentSong, isPlaying, setIsPlaying }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useContext<any | null>(AudioContext);
+
   const [songInfo, setSongInfo] = useState<SongInfo>({ currentTime: 0, duration: 0 });
 
   const formatTime = (t: number) => ("0" + Math.floor(t / 60)).slice(-2) + ":" + ("0" + Math.floor(t % 60)).slice(-2);

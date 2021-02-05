@@ -6,15 +6,16 @@ interface Props {
   currentSong: songModel;
   setCurrentSong: React.Dispatch<React.SetStateAction<songModel>>;
   songs: songModel[];
+  isPlaying: boolean;
 }
 
-const Library: FC<Props> = ({ currentSong, setCurrentSong, songs }) => {
+const Library: FC<Props> = ({ currentSong, setCurrentSong, songs, isPlaying }) => {
   return (
     <div className="library">
       <h2>Library</h2>
       <div className="librarySongs">
         {songs.map((song) => (
-          <LibrarySong song={song} />
+          <LibrarySong song={song} key={song.id} isPlaying={isPlaying} setCurrentSong={setCurrentSong} />
         ))}
       </div>
     </div>

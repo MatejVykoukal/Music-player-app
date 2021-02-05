@@ -4,6 +4,7 @@ import Song from "./components/Song";
 import "./styles/app.scss";
 import data from "./data";
 import Library from "./components/Library";
+import { AudioProvider } from "./AudioContext";
 
 function App() {
   const [songs, setSongs] = useState(data());
@@ -11,11 +12,13 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="App">
-      <Song currentSong={currentSong} />
-      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} />
-      <Library currentSong={currentSong} setCurrentSong={setCurrentSong} songs={songs} />
-    </div>
+    <AudioProvider>
+      <div className="App">
+        <Song currentSong={currentSong} />
+        <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} />
+        <Library currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} songs={songs} />
+      </div>
+    </AudioProvider>
   );
 }
 
