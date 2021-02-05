@@ -1,9 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
+import songModel from "../interfaces/songModel";
 
-const Song = () => {
+interface Props {
+  currentSong: songModel;
+}
+
+const Song: FC<Props> = ({ currentSong }) => {
   return (
     <div className="songContainer">
-      <h1>Song</h1>
+      <img src={currentSong.cover} alt={currentSong.name} />
+      <h2>{currentSong.name}</h2>
+      <h3>{currentSong.artist}</h3>
     </div>
   );
 };
