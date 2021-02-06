@@ -5,15 +5,18 @@ import "./styles/app.scss";
 import data from "./data";
 import Library from "./components/Library";
 import { AudioProvider } from "./AudioContext";
+import Nav from "./components/Nav";
 
 function App() {
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
     <AudioProvider>
       <div className="App">
+        <Nav isOpened={isOpened} setIsOpened={setIsOpened} />
         <Song currentSong={currentSong} />
         <Player
           isPlaying={isPlaying}
@@ -29,6 +32,7 @@ function App() {
           isPlaying={isPlaying}
           songs={songs}
           setSongs={setSongs}
+          isOpened={isOpened}
         />
       </div>
     </AudioProvider>
