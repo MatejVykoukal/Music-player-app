@@ -8,9 +8,10 @@ interface Props {
   isPlaying: boolean;
   setSongs: React.Dispatch<React.SetStateAction<songModel[]>>;
   songs: songModel[];
+  currentSong: songModel;
 }
 
-const LibrarySong: FC<Props> = ({ song, setCurrentSong, isPlaying, setSongs, songs }) => {
+const LibrarySong: FC<Props> = ({ song, setCurrentSong, isPlaying, setSongs, songs, currentSong }) => {
   const audioRef = useContext<any | null>(AudioContext);
 
   const ChangeSongHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -23,7 +24,7 @@ const LibrarySong: FC<Props> = ({ song, setCurrentSong, isPlaying, setSongs, son
       }
     }
     const newSongs = songs.map((s) => {
-      if (s === song) {
+      if (s.id === song.id) {
         return {
           ...s,
           active: true,

@@ -23,6 +23,7 @@ const Library: FC<Props> = ({ currentSong, setCurrentSong, songs, isPlaying, set
             setCurrentSong={setCurrentSong}
             setSongs={setSongs}
             songs={songs}
+            currentSong={currentSong}
           />
         ))}
       </div>
